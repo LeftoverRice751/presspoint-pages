@@ -1,0 +1,1069 @@
+<!doctype html>
+<!--
+  PressPoint GitHub page
+  ------------------------------------------------------------------
+  Content:  README.md  (manuscript is the source of truth)
+  Design:   DESIGN.md  (§9 explains the folders and class names)
+
+  HOW TO EDIT
+  - Every spot that still needs content is marked with a comment that
+    starts with "EDIT:". Search this file for EDIT: to find them all.
+  - Each section starts with a banner comment like  ===== 4. THE PROBLEM =====
+  - Missing text shows as <span class="pending">…</span>. Replace the whole
+    span with the real text.
+  - Missing images show as a dashed "Image to add" box (figure-placeholder).
+    Replace it with the figure-frame markup given in the comment next to it.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PressPoint · Cloud-Based Interactive Kiosk for The Gears</title>
+  <meta name="description" content="PressPoint is a touchscreen kiosk and editorial dashboard for The Gears Publication of LSPU – Sta. Cruz Campus, with real-time publishing, campus navigation, searchable archives and a 360° virtual tour.">
+
+  <!-- Load order matters: tokens → base → components → sections -->
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/buttons/buttons.css">
+  <link rel="stylesheet" href="styles/navbar/navbar.css">
+  <link rel="stylesheet" href="styles/footer/footer.css">
+  <link rel="stylesheet" href="styles/content/content.css">
+  <link rel="stylesheet" href="styles/sections/sections.css">
+
+  <script src="styles/navbar/navbar.js" defer></script>
+</head>
+<body>
+
+<!-- ===================================================================
+     0. NAVIGATION BAR  (same markup as styles/navbar/navbar.html)
+     =================================================================== -->
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header class="navbar" data-navbar>
+  <nav class="navbar-inner container" aria-label="Main">
+    <a class="navbar-brand" href="#top">PressPoint</a>
+
+    <button class="navbar-toggle" type="button"
+            aria-expanded="false" aria-controls="navbar-menu" data-navbar-toggle>
+      <span class="navbar-toggle-icon" aria-hidden="true"></span>
+      Menu
+    </button>
+
+    <ul class="navbar-menu" id="navbar-menu" data-navbar-menu>
+      <li><a class="navbar-link" href="#about">About</a></li>
+      <li><a class="navbar-link" href="#team">Team</a></li>
+      <li><a class="navbar-link" href="#problem">Problem</a></li>
+      <li><a class="navbar-link" href="#objectives">Objectives</a></li>
+      <li><a class="navbar-link" href="#methodology">Methodology</a></li>
+      <li><a class="navbar-link" href="#system">System</a></li>
+      <li><a class="navbar-link" href="#results">Results</a></li>
+      <li><a class="navbar-link" href="#links">Links</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="content">
+
+<!-- ===================================================================
+     1. HERO / MASTHEAD
+     =================================================================== -->
+<section class="masthead surface-brand" id="top" aria-labelledby="masthead-title">
+  <div class="container">
+    <div class="masthead-layout">
+
+      <div class="masthead-text">
+
+        <div class="masthead-nameplate">
+          <h1 class="masthead-title" id="masthead-title">PressPoint</h1>
+        </div>
+
+        <p class="masthead-subtitle">
+          A Cloud-Based Interactive Kiosk System with Real-Time Editorial Content Management for
+          <em>The Gears</em> Publication, the Official Student Publication of LSPU – Sta. Cruz Campus
+        </p>
+
+        <p class="masthead-summary">
+          A touchscreen kiosk and editorial dashboard that replaces flash-drive updates with real-time
+          publishing, and adds campus navigation, searchable archives and a 360° virtual tour.
+        </p>
+
+        <div class="button-group">
+          <a class="button button-primary" href="https://presspoint-gears.me">Open the live system</a>
+
+          <!-- EDIT: demo video link. Replace this span with:
+               <a class="button button-secondary" href="DEMO-LINK">Watch the demo</a> -->
+          <span class="button button-secondary is-pending">Watch the demo <span class="button-note">(coming soon)</span></span>
+
+          <!-- EDIT: manuscript link. Replace this span with:
+               <a class="button button-secondary" href="files/presspoint-manuscript.pdf">Read the manuscript</a> -->
+          <span class="button button-secondary is-pending">Read the manuscript <span class="button-note">(coming soon)</span></span>
+        </div>
+
+        <p class="masthead-byline">
+          Capstone project, BS Information Technology, Major in Web and Mobile Application Development<br>
+          College of Computer Studies, Laguna State Polytechnic University – Sta. Cruz Campus
+        </p>
+      </div>
+
+      <figure class="figure figure-portrait masthead-figure">
+        <!-- EDIT: hero image. Replace the placeholder div with:
+             <div class="figure-frame"><img src="images/hero-kiosk.png"
+               alt="PressPoint kiosk main menu showing six module buttons"
+               width="768" height="1024"></div> -->
+        <div class="figure-placeholder">
+          <span class="figure-placeholder-title">Image to add</span>
+          <span class="figure-placeholder-path">images/hero-kiosk.png</span>
+        </div>
+        <figcaption class="figure-caption">Kiosk User Page</figcaption>
+      </figure>
+
+    </div>
+
+    <!-- Key figures. To add/remove one, copy/delete an <li>. -->
+    <ul class="stats-strip" aria-label="Key figures">
+      <li class="stats-strip-item">
+        <span class="stats-strip-number">98.21%</span>
+        <span class="stats-strip-label">Black-box test passing rate (275 of 280 test instances)</span>
+      </li>
+      <li class="stats-strip-item">
+        <span class="stats-strip-number">290</span>
+        <span class="stats-strip-label">Respondents in the user evaluation</span>
+      </li>
+      <li class="stats-strip-item">
+        <span class="stats-strip-number">4.83–5.00</span>
+        <span class="stats-strip-label">Overall mean across all six acceptance criteria, <em>Highly Acceptable</em></span>
+      </li>
+      <li class="stats-strip-item">
+        <span class="stats-strip-number">6</span>
+        <span class="stats-strip-label">Kiosk modules on the main menu</span>
+      </li>
+      <li class="stats-strip-item">
+        <span class="stats-strip-number">12</span>
+        <span class="stats-strip-label">Editor’s Dashboard modules</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================================================================
+     2. ABOUT THE PROJECT
+     =================================================================== -->
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="container">
+    <header class="section-header">
+      <h2 class="section-title" id="about-title">About the project</h2>
+    </header>
+
+    <div class="stack">
+      <p class="lead">
+        <em>The Gears</em> is the campus publication of LSPU – Sta. Cruz Campus, responsible for campus
+        news, journalism and literary works. Until now, content reached the campus kiosk the manual way:
+        files were carried from the publication office to the terminal on flash drives.
+      </p>
+      <p>
+        PressPoint replaces that with one cloud-based platform. Editors and the publication’s administrator
+        manage news, events and archives from a web dashboard, and every approved update reaches the kiosk
+        in real time with no trip to the terminal. On the kiosk, students, faculty and visitors can read the
+        latest issue, browse digitized publications, find campus offices on a 2.5D interactive map, take a
+        360° virtual tour, and view the university’s organizational chart, all from a security-locked
+        touchscreen with no sign-in.
+      </p>
+
+      <aside class="callout">
+        <span class="callout-label">Scope note</span>
+        <p>
+          PressPoint was deliberately designed <strong>without gamification or AI chatbot features</strong>,
+          to keep the platform focused on accurate news and reliable campus services.
+        </p>
+      </aside>
+
+      <div>
+        <h3 class="visually-hidden">Keywords</h3>
+        <ul class="tag-list" aria-label="Keywords">
+          <li class="tag">Interactive Kiosk</li>
+          <li class="tag">Cloud-Based System</li>
+          <li class="tag">Editorial Content Management</li>
+          <li class="tag">Student Publication</li>
+          <li class="tag">Campus Information Services</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================
+     3. RESEARCH TEAM
+     =================================================================== -->
+<section class="section" id="team" aria-labelledby="team-title">
+  <div class="container">
+    <header class="section-header">
+      <h2 class="section-title" id="team-title">Research team</h2>
+    </header>
+
+    <h3 class="subsection-title">Proponents</h3>
+    <!-- EDIT: headshots. To use a photo, replace the initials inside .avatar with:
+         <img src="images/team-bajao.jpg" alt="" width="144" height="144">
+         (alt="" because the name is written right next to it) -->
+    <ul class="layout-grid">
+      <li class="card team-card">
+        <span class="avatar" aria-hidden="true">JB</span>
+        <div>
+          <p class="team-name">John Paul B. Bajao</p>
+          <span class="card-meta">Researcher</span>
+        </div>
+      </li>
+      <li class="card team-card">
+        <span class="avatar" aria-hidden="true">JR</span>
+        <div>
+          <p class="team-name">Justine Rheign D. Rebong</p>
+          <span class="card-meta">Researcher</span>
+        </div>
+      </li>
+      <li class="card team-card">
+        <span class="avatar" aria-hidden="true">LS</span>
+        <div>
+          <p class="team-name">Lance Aeriel T. Sisante</p>
+          <span class="card-meta">Researcher</span>
+        </div>
+      </li>
+    </ul>
+
+    <div class="subsection layout-split">
+      <div>
+        <h3 class="subsection-title">Thesis adviser</h3>
+        <div class="card team-card">
+          <span class="avatar" aria-hidden="true">GM</span>
+          <div>
+            <p class="team-name">Gener F. Mosico, MSIT</p>
+            <span class="card-meta">Thesis Adviser</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="subsection-title">College and university</h3>
+        <ul class="people-list">
+          <li><strong>Research Coordinator:</strong> Mark P. Bernardino, MSCS</li>
+          <li><strong>Associate Dean, CCS:</strong> Mia V. Villarica, D.I.T.</li>
+          <li><strong>Chairperson, Research and Development:</strong> Rosario G. Catapang, PhD, Ffp</li>
+        </ul>
+        <p>
+          <strong>Partner organization:</strong> <em>The Gears</em> Publication, LSPU – Sta. Cruz Campus.
+          Publication adviser: Dr. Maida O. Sarmiento.
+        </p>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3 class="subsection-title">Acknowledgements</h3>
+      <p class="quote">
+        The proponents thank God Almighty; their thesis adviser, Gener F. Mosico, for his guidance from
+        conceptualization to completion; the Oral Examination Committee for their insights;
+        <em>The Gears</em> Publication for allowing the study and providing the necessary data and
+        resources; and their families, friends and classmates for their support.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================
+     4. THE PROBLEM
+     =================================================================== -->
+<section class="section" id="problem" aria-labelledby="problem-title">
+  <div class="container">
+    <header class="section-header">
+      <h2 class="section-title" id="problem-title">The problem</h2>
+    </header>
+
+    <p class="lead">
+      <em>The Gears</em> Publication still relies on manual methods to disseminate campus news and manage
+      student publications.
+    </p>
+    <p>
+      Updates are carried to the kiosk on flash drives, which causes <strong>delayed updates</strong>, a
+      <strong>heavier administrative workload</strong>, and <strong>limited access to on-the-spot
+      information</strong>. There is no centralized, cloud-integrated system, no real-time synchronization,
+      and no automated inquiry or navigation tool, which hurts most for <strong>new enrollees and
+      visitors</strong> who need immediate guidance around campus. Leaving a kiosk in a public space also
+      raises concerns about <strong>security and proper use</strong>.
+    </p>
+
+    <div class="subsection">
+      <h3 class="subsection-title">Problems identified</h3>
+      <ol class="layout-grid">
+        <li class="card"><span class="card-number" aria-hidden="true">01</span>
+          <p class="card-text">No centralized digital infrastructure for publication content.</p></li>
+        <li class="card"><span class="card-number" aria-hidden="true">02</span>
+          <p class="card-text">No real-time synchronization between the publication office and the kiosk.</p></li>
+        <li class="card"><span class="card-number" aria-hidden="true">03</span>
+          <p class="card-text">Staff have to travel back and forth between the office and the kiosk terminal.</p></li>
+        <li class="card"><span class="card-number" aria-hidden="true">04</span>
+          <p class="card-text">No automated inquiry or campus navigation tool for students and visitors.</p></li>
+        <li class="card"><span class="card-number" aria-hidden="true">05</span>
+          <p class="card-text">Security concerns about an interactive kiosk in a public space.</p></li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <h3 class="subsection-title">The technology gap</h3>
+      <p>
+        Related systems offer digital signage, wayfinding or content delivery, but <strong>usually only one
+        of them</strong>. Conventional signage is passive, standalone navigation apps need to be installed on
+        a personal device and have no central administration, and student publication kiosks lack cloud
+        synchronization. The gap is the <strong>integration</strong> of real-time editorial management,
+        geospatial campus navigation and searchable publication archives in <strong>one secure kiosk
+        interface</strong>.
+      </p>
+
+      <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="gaps-caption">
+        <table class="data-table">
+          <caption id="gaps-caption">Three gaps the study addresses</caption>
+          <thead>
+            <tr><th scope="col">Gap</th><th scope="col">Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Integration gap</th><td>Single-function systems don’t combine editorial management, archives and navigation.</td></tr>
+            <tr><th scope="row">Technology gap</th><td>Campus publications still update kiosks by hand with flash drives.</td></tr>
+            <tr><th scope="row">Evaluation gap</th><td>Little formal assessment of kiosks built for student publications.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- EDIT (optional): flowchart of the current manual process (Ch. III) beside
+         the proposed cloud workflow. Delete this block if you won't use it. -->
+    <div class="subsection layout-split">
+      <figure class="figure">
+        <div class="figure-placeholder">
+          <span class="figure-placeholder-title">Optional image</span>
+          <span class="figure-placeholder-path">images/current-process.png</span>
+        </div>
+        <figcaption class="figure-caption">Current manual process</figcaption>
+      </figure>
+      <figure class="figure">
+        <div class="figure-placeholder">
+          <span class="figure-placeholder-title">Optional image</span>
+          <span class="figure-placeholder-path">images/proposed-process.png</span>
+        </div>
+        <figcaption class="figure-caption">Proposed cloud workflow</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================
+     5. OBJECTIVES
+     =================================================================== -->
+<section class="section" id="objectives" aria-labelledby="objectives-title">
+  <div class="container">
+    <header class="section-header">
+      <h2 class="section-title" id="objectives-title">Objectives</h2>
+    </header>
+
+    <h3 class="subsection-title">General objective</h3>
+    <p class="lead">
+      To design, test and evaluate the acceptance of PressPoint, a cloud-based interactive kiosk system with
+      real-time editorial content management for <em>The Gears</em> Publication of Laguna State Polytechnic
+      University – Sta. Cruz Campus.
+    </p>
+
+    <div class="subsection">
+      <h3 class="subsection-title">Specific objectives</h3>
+      <ol class="step-list">
+        <li>
+          <span class="step-title">Design and develop</span>
+          a cloud-based interactive kiosk system with real-time editorial content management for
+          <em>The Gears</em> Publication.
+        </li>
+        <li>
+          <span class="step-title">Test</span>
+          the system’s major features using <strong>Black-Box Testing</strong>:
+          <ol>
+            <li><strong>Content Management</strong>: adding, editing, deleting, searching and publishing editorial content through the control panel.</li>
+            <li><strong>Cloud Synchronization</strong>: real-time syncing from the control panel to the kiosk terminal, with consistent data.</li>
+            <li><strong>Geospatial Navigation and Interactive Campus Mapping</strong>: showing the campus map, locating university offices and visualizing routes.</li>
+            <li><strong>News Archive Management</strong>: storing, retrieving, searching and displaying previously published content.</li>
+            <li><strong>Security-Locked Kiosk Interface</strong>: blocking unauthorized access and keeping the kiosk in a controlled mode.</li>
+            <li><strong>Virtual Campus Tour</strong>: 360° panoramic views of campus with interactive navigation and location information.</li>
+          </ol>
+        </li>
+        <li>
+          <span class="step-title">Evaluate acceptability</span>
+          on six criteria: Quality Factors, Perceived Ease of Use, Perceived Usefulness, Attitude Toward
+          Using, Behavioral Intention to Use and User Experience.
+        </li>
+      </ol>
+    </div>
+
+    <div class="subsection">
+      <h3 class="subsection-title">Who benefits</h3>
+      <ul class="tag-list">
+        <li class="tag"><em>The Gears</em> Publication</li>
+        <li class="tag">Students</li>
+        <li class="tag">University Administration</li>
+        <li class="tag">Visitors and New Students</li>
+        <li class="tag">System Administrators</li>
+        <li class="tag">Researchers</li>
+        <li class="tag">Future Researchers</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================
+     6. SCOPE AND LIMITATIONS
+     =================================================================== -->
+<section class="section" id="scope" aria-labelledby="scope-title">
+  <div class="container">
+    <header class="section-header">
+      <h2 class="section-title" id="scope-title">Scope and limitations</h2>
+    </header>
+
+    <div class="layout-split">
+      <div class="card">
+        <h3 class="subsection-title">Scope</h3>
+        <ul>
+          <li>Remote synchronization of news, literary content and campus announcements through a cloud-based link.</li>
+          <li>All major university offices are routable destinations on the interactive map.</li>
+          <li>Academic rooms are view-only on the map, with no automated routing.</li>
+          <li>The system is controlled from the publication office workstation to the kiosk terminal.</li>
+          <li>A security-locked kiosk mode prevents unauthorized system access.</li>
+          <li>Evaluation uses quantitative methods.</li>
+          <li>The study area is LSPU – Sta. Cruz Campus.</li>
+        </ul>
+      </div>
+
+      <aside class="callout">
+        <span class="callout-label">Limitations</span>
+        <ul>
+          <li>Updates can’t sync during a total internet outage, because the system relies on cloud synchronization.</li>
+          <li>No turn-by-turn navigation to individual classrooms or laboratories.</li>
+          <li>Virtual tour coverage is limited to 360° footage captured from <strong>May 2026 to November 2026</strong>.</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================
+     7. METHODOLOGY
+     =================================================================== -->
+<section class="section" id="methodology" aria-labelledby="methodology-title">
+  <div class="container">
+    <header class="section-header">
+      <h2 class="section-title" id="methodology-title">Methodology</h2>
+    </header>
+
+    <!-- 7.1 Research design -->
+    <h3 class="subsection-title">Research design</h3>
+    <p>
+      The study used a <strong>descriptive-developmental</strong> and <strong>quantitative</strong> research
+      design. The descriptive phase gathered data on <em>The Gears</em>’ current workflow and challenges
+      through interviews, observation and consultation. The developmental phase guided the design,
+      development, testing and evaluation of the system. The quantitative phase measured acceptability
+      through survey questionnaires.
+    </p>
+    <ul>
+      <li><strong>Locale:</strong> <em>The Gears</em> Publication Office, LSPU – Sta. Cruz Campus</li>
+      <li><strong>Data gathering:</strong> an interview with <em>The Gears</em> adviser, Dr. Maida O.
+        Sarmiento; direct observation of the flash-drive workflow; brainstorming sessions; internet
+        research; a survey questionnaire.</li>
+    </ul>
+
+    <!-- 7.2 Conceptual framework -->
+    <div class="subsection layout-split">
+      <div>
+        <h3 class="subsection-title">Conceptual framework</h3>
+        <ol class="flow" aria-label="Conceptual framework stages">
+          <li class="flow-step">Initialization</li>
+          <li class="flow-arrow" aria-hidden="true">→</li>
+          <li class="flow-step">Methodology</li>
+          <li class="flow-arrow" aria-hidden="true">→</li>
+          <li class="flow-step">Evaluation</li>
+        </ol>
+        <p class="space-above-small">
+          <strong>Initialization</strong>: problems in the current kiosk and dissemination process identified
+          through observation, interviews and problem-solving sessions. <strong>Methodology</strong>: the
+          system designed and developed with the Agile model. <strong>Evaluation</strong>: Black-Box Testing
+          and user acceptance testing.
+        </p>
+      </div>
+      <figure class="figure">
+        <!-- EDIT: image → images/conceptual-framework.png
+             alt suggestion: "Conceptual framework: initialization, methodology and evaluation stages" -->
+        <div class="figure-placeholder">
+          <span class="figure-placeholder-title">Image to add</span>
+          <span class="figure-placeholder-path">images/conceptual-framework.png</span>
+        </div>
+        <figcaption class="figure-caption">Conceptual Framework</figcaption>
+      </figure>
+    </div>
+
+    <!-- 7.3 Agile SDLC -->
+    <div class="subsection">
+      <h3 class="subsection-title">Development model: Agile SDLC</h3>
+      <div class="layout-split">
+        <ol class="step-list">
+          <li><span class="step-title">Planning and requirement analysis</span>
+            Interview with <em>The Gears</em> adviser, online research, technology gap analysis, brainstorming.</li>
+          <li><span class="step-title">System design and sprint planning</span>
+            Interface layouts and design, with work split into sprints around cloud updates, interactive interfaces and geospatial navigation.</li>
+          <li><span class="step-title">Development and iterative testing</span>
+            Features built sprint by sprint, each tested with publication staff and students.</li>
+          <li><span class="step-title">System evaluation and usability testing</span>
+            Task-based scenarios such as locating campus rooms and accessing announcements.</li>
+          <li><span class="step-title">Deployment and continuous improvement</span>
+            Deployed at LSPU – Sta. Cruz Campus with every revision from testing.</li>
+          <li><span class="step-title">Maintenance, optimization and future enhancement</span>
+            A maintenance plan and a <strong>turnover agreement</strong> in which the administrator and
+            editorial board are trained, and they in turn train the next batch before they leave.</li>
+        </ol>
+        <figure class="figure">
+          <!-- EDIT: image → images/agile-cycle.png
+               alt suggestion: "Agile cycle of six stages from planning to maintenance" -->
+          <div class="figure-placeholder">
+            <span class="figure-placeholder-title">Image to add</span>
+            <span class="figure-placeholder-path">images/agile-cycle.png</span>
+          </div>
+          <figcaption class="figure-caption">Agile Software Development Cycle Model</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- 7.4 Respondents and sampling -->
+    <div class="subsection">
+      <h3 class="subsection-title">Respondents and sampling</h3>
+      <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="respondents-caption">
+        <table class="data-table">
+          <caption id="respondents-caption">Respondents and sampling</caption>
+          <thead>
+            <tr>
+              <th scope="col">Group</th>
+              <th scope="col" class="number">Population</th>
+              <th scope="col" class="number">Sample</th>
+              <th scope="col">Sampling</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Administrator</th><td class="number">1</td><td class="number">1</td><td>Census (purposive)</td></tr>
+            <tr><th scope="row">Editors (editorial board)</th><td class="number">10</td><td class="number">10</td><td>Purposive (all members)</td></tr>
+            <tr><th scope="row">Students, all 9 colleges</th><td class="number">9,096</td><td class="number">279</td><td>Proportional stratified random sampling</td></tr>
+            <tr class="table-total"><th scope="row">Total</th><td class="number"></td><td class="number">290</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="minor-title">Students by college</h4>
+      <ul class="tag-list">
+        <li class="tag">CAS 38</li>
+        <li class="tag">CBAA 59</li>
+        <li class="tag">CCS 22</li>
+        <li class="tag">CCJE 11</li>
+        <li class="tag">COE 54</li>
+        <li class="tag">CIT 47</li>
+        <li class="tag">CIHMT 14</li>
+        <li class="tag">CONAH 10</li>
+        <li class="tag">CTE 24</li>
+      </ul>
+
+      <p class="space-above">
+        <strong>System testers:</strong> 10 IT professionals (BSIT graduates working as IT staff of the
+        Municipality of Santa Cruz and in private companies, with 1 to 10 years of experience).
+      </p>
+    </div>
+
+    <!-- 7.5 Instruments and evaluation -->
+    <div class="subsection layout-split">
+      <div>
+        <h3 class="subsection-title">Instruments and evaluation</h3>
+        <ul>
+          <li><strong>Functional testing:</strong> Black-Box Testing on a pass/fail scale, carried out by the 10 IT experts.</li>
+          <li><strong>User acceptance:</strong> a survey questionnaire based on the <strong>Technology
+            Acceptance Model (TAM)</strong> and <strong>ISO/IEC 25010</strong>, validated by the thesis
+            adviser during the system demonstration and administered face-to-face.</li>
+          <li><strong>Scale:</strong> a 5-point Likert scale, with results summarized by weighted mean and standard deviation.</li>
+        </ul>
+      </div>
+      <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="likert-caption">
+        <table class="data-table">
+          <caption id="likert-caption">5-point Likert scale</caption>
+          <thead>
+            <tr>
+              <th scope="col">Scale</th>
+              <th scope="col">Mean range</th>
+              <th scope="col">Description</th>
+              <th scope="col">Interpretation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">5</th><td>4.50–5.00</td><td>Strongly Agree</td><td>Excellent</td></tr>
+            <tr><th scope="row">4</th><td>3.50–4.49</td><td>Agree</td><td>Very Satisfactory</td></tr>
+            <tr><th scope="row">3</th><td>2.50–3.49</td><td>Undecided</td><td>Satisfactory</td></tr>
+            <tr><th scope="row">2</th><td>1.50–2.49</td><td>Disagree</td><td>Fair</td></tr>
+            <tr><th scope="row">1</th><td>1.00–1.49</td><td>Strongly Disagree</td><td>Poor</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================
+     8. THE SYSTEM
+     =================================================================== -->
+<section class="section" id="system" aria-labelledby="system-title">
+  <div class="container">
+    <header class="section-header">
+      <h2 class="section-title" id="system-title">The system</h2>
+    </header>
+
+    <!-- 8.1 Architecture -->
+    <div class="layout-split">
+      <div>
+        <h3 class="subsection-title">Architecture</h3>
+        <p>
+          Users (students, faculty, staff and visitors) use the <strong>kiosk interface</strong>, which reads
+          from the <strong>central MySQL database</strong>. Administrators and editors update that database
+          through the <strong>admin dashboard</strong>. When an editor updates an article or event, the
+          application stores it and pushes it to the kiosk right away, with no flash drive involved.
+        </p>
+        <ol class="flow" aria-label="System flow">
+          <li class="flow-step">Users</li>
+          <li class="flow-arrow" aria-hidden="true">→</li>
+          <li class="flow-step">Kiosk Interface</li>
+          <li class="flow-arrow" aria-hidden="true">⇄</li>
+          <li class="flow-step">Database</li>
+          <li class="flow-arrow" aria-hidden="true">⇄</li>
+          <li class="flow-step">Admin Module</li>
+        </ol>
+      </div>
+      <figure class="figure">
+        <!-- EDIT: image → images/architecture.png
+             alt suggestion: "Users reach the kiosk interface, which shares a database with the admin module" -->
+        <div class="figure-placeholder">
+          <span class="figure-placeholder-title">Image to add</span>
+          <span class="figure-placeholder-path">images/architecture.png</span>
+        </div>
+        <figcaption class="figure-caption">System Architecture</figcaption>
+      </figure>
+    </div>
+
+    <!-- 8.2 User roles -->
+    <div class="subsection">
+      <h3 class="subsection-title">User roles</h3>
+      <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="roles-caption">
+        <table class="data-table">
+          <caption id="roles-caption">User roles</caption>
+          <thead>
+            <tr><th scope="col">Role</th><th scope="col">What they do</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Students, faculty and visitors</th><td>Use the public kiosk with no sign-in</td></tr>
+            <tr><th scope="row">Editors</th><td>Manage and submit content through the Editor’s Dashboard</td></tr>
+            <tr><th scope="row">Administrator</th><td>Reviews, approves or sends back newsletters; creates editor accounts</td></tr>
+            <tr><th scope="row">Super Administrator</th><td>Oversees all content and manages administrator accounts</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="space-above-small">Access is enforced with role-based access control (RBAC).</p>
+    </div>
+
+    <!-- 8.3 Kiosk User Page -->
+    <div class="subsection">
+      <h3 class="subsection-title">Kiosk User Page</h3>
+      <p>The touchscreen main menu has <strong>six modules</strong>:</p>
+      <div class="layout-split">
+        <ul class="layout-grid">
+          <li class="card"><h4 class="card-title">Latest News</h4>
+            <p class="card-text">The current newsletter, with news, announcements and events.</p></li>
+          <li class="card"><h4 class="card-title">Campus Map</h4>
+            <p class="card-text">A 2.5D interactive map with automated routing to university offices; a QR code hands the route to your phone.</p></li>
+          <li class="card"><h4 class="card-title">Gears Archives</h4>
+            <p class="card-text">Searchable digitized Folios, Tabloids, Magazines and Newsletters.</p></li>
+          <li class="card"><h4 class="card-title">Virtual Tour</h4>
+            <p class="card-text">A 360° panoramic campus tour with interactive hotspots.</p></li>
+          <li class="card"><h4 class="card-title">About LSPU</h4>
+            <p class="card-text">The institutional profile.</p></li>
+          <li class="card"><h4 class="card-title">LSPU Org Chart</h4>
+            <p class="card-text">Organizational boards of colleges and organizations.</p></li>
+        </ul>
+        <figure class="figure figure-portrait figure-centered">
+          <!-- EDIT: image → images/kiosk-user-page.png (768 × 1024)
+               alt suggestion: "Kiosk main menu showing six module buttons" -->
+          <div class="figure-placeholder">
+            <span class="figure-placeholder-title">Image to add</span>
+            <span class="figure-placeholder-path">images/kiosk-user-page.png</span>
+          </div>
+          <figcaption class="figure-caption">Kiosk User Page</figcaption>
+        </figure>
+      </div>
+      <p class="space-above">
+        How users interact: tap to navigate, swipe to read full newsletters, use an on-screen keyboard to
+        search offices, drag to pan the 360° tour and tap hotspots to move between scenes, and scan QR codes
+        to continue on a phone. The kiosk runs in a <strong>security-locked mode</strong>, so users can’t
+        reach the terminal’s operating system.
+      </p>
+    </div>
+
+    <!-- 8.4 Editor's Dashboard -->
+    <div class="subsection">
+      <h3 class="subsection-title">Editor’s Dashboard</h3>
+      <p>Twelve modules:</p>
+      <ul class="tag-list" aria-label="Editor's Dashboard modules">
+        <li class="tag">Dashboard Overview</li>
+        <li class="tag">Events</li>
+        <li class="tag">News</li>
+        <li class="tag">Archives</li>
+        <li class="tag">Locations</li>
+        <li class="tag">Org Board</li>
+        <li class="tag">Tour Mapping</li>
+        <li class="tag">About LSPU</li>
+        <li class="tag">Kiosk Videos</li>
+        <li class="tag">Screen Control</li>
+        <li class="tag">Branding</li>
+        <li class="tag">Profile</li>
+      </ul>
+
+      <h4 class="minor-title">Highlights</h4>
+      <ul>
+        <li><strong>News composer:</strong> arrange headlines and widgets on a drag-and-drop canvas.</li>
+        <li><strong>Events:</strong> title, description, date and location for campus events.</li>
+        <li><strong>Archives:</strong> upload and manage Folios, Tabloids, Magazines and Newsletters.</li>
+        <li><strong>Locations and Tour Mapping:</strong> set routable destinations and link buildings to 360° tour frames.</li>
+        <li><strong>Kiosk Videos:</strong> upload MP4s for immediate broadcast or idle animation.</li>
+        <li><strong>Screen Control:</strong> remotely freeze or resume the kiosk for maintenance or misuse.</li>
+      </ul>
+
+      <!-- EDIT: dashboard screenshots → images/editor-dashboard.png,
+           images/geospatial-navigation.png, images/org-board.png -->
+      <ul class="layout-grid space-above-large">
+        <li>
+          <figure class="figure">
+            <div class="figure-placeholder">
+              <span class="figure-placeholder-title">Image to add</span>
+              <span class="figure-placeholder-path">images/editor-dashboard.png</span>
+            </div>
+            <figcaption class="figure-caption">Editor’s Dashboard</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="figure">
+            <div class="figure-placeholder">
+              <span class="figure-placeholder-title">Image to add</span>
+              <span class="figure-placeholder-path">images/geospatial-navigation.png</span>
+            </div>
+            <figcaption class="figure-caption">Geospatial Navigation and Tour Mapping</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="figure">
+            <div class="figure-placeholder">
+              <span class="figure-placeholder-title">Image to add</span>
+              <span class="figure-placeholder-path">images/org-board.png</span>
+            </div>
+            <figcaption class="figure-caption">Organizational Board</figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 8.5 Admin and Super Admin -->
+    <div class="subsection">
+      <h3 class="subsection-title">Admin and Super Admin</h3>
+      <ul>
+        <li><strong>Admin Dashboard:</strong> review, approve or send back newsletters submitted by editors; manage editor accounts; generate passwords.</li>
+        <li><strong>Super Admin Dashboard:</strong> an overview of all published and uploaded content, plus administrator account management.</li>
+      </ul>
+      <!-- EDIT: screenshots → images/admin-dashboard.png, images/super-admin.png -->
+      <div class="layout-split space-above">
+        <figure class="figure">
+          <div class="figure-placeholder">
+            <span class="figure-placeholder-title">Image to add</span>
+            <span class="figure-placeholder-path">images/admin-dashboard.png</span>
+          </div>
+          <figcaption class="figure-caption">Admin Dashboard</figcaption>
+        </figure>
+        <figure class="figure">
+          <div class="figure-placeholder">
+            <span class="figure-placeholder-title">Image to add</span>
+            <span class="figure-placeholder-path">images/super-admin.png</span>
+          </div>
+          <figcaption class="figure-caption">Super Admin Dashboard and Overview</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- 8.6 Database -->
+    <div class="subsection layout-split">
+      <div>
+        <h3 class="subsection-title">Database</h3>
+        <p>
+          A central MySQL database separates <strong>System Users</strong> (editor, admin and super admin
+          accounts) from <strong>Editorial Content</strong> (news, events, archives, PDF records,
+          institutional profiles) and <strong>Campus Navigation</strong> (routable locations and
+          virtual-tour mapping).
+        </p>
+      </div>
+      <figure class="figure">
+        <!-- EDIT: image → images/database.png -->
+        <div class="figure-placeholder">
+          <span class="figure-placeholder-title">Image to add</span>
+          <span class="figure-placeholder-path">images/database.png</span>
+        </div>
+        <figcaption class="figure-caption">Simplified Database Structure</figcaption>
+      </figure>
+    </div>
+
+    <!-- 8.7 Technology stack + 8.8 Requirements -->
+    <div class="subsection layout-split">
+      <div>
+        <h3 class="subsection-title">Technology stack</h3>
+        <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="stack-caption">
+          <table class="data-table">
+            <caption id="stack-caption">Technology stack</caption>
+            <thead>
+              <tr><th scope="col">Layer</th><th scope="col">Technology</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Backend</th><td>Python, Masonite framework</td></tr>
+              <tr><th scope="row">Frontend</th><td>HTML, CSS, JavaScript</td></tr>
+              <tr><th scope="row">Database</th><td>MySQL</td></tr>
+              <tr><th scope="row">Cloud storage and sync</th><td>Nextcloud, Samba</td></tr>
+              <tr><th scope="row">Web infrastructure and security</th><td>Nginx, Gunicorn, Cloudflare</td></tr>
+              <tr><th scope="row">360° tour</th><td>Marzipano</td></tr>
+              <tr><th scope="row">PDF rendering</th><td>pdf.js (pdfjs-dist)</td></tr>
+              <tr><th scope="row">Development</th><td>Visual Studio Code</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <h3 class="subsection-title">Requirements</h3>
+        <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="requirements-caption">
+          <table class="data-table">
+            <caption id="requirements-caption">Requirements</caption>
+            <thead>
+              <tr><th scope="col">Resource</th><th scope="col">Requirement</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Administrative device</th><td>Desktop or laptop (Intel Core i5, 8 GB RAM minimum, 512 GB SSD)</td></tr>
+              <tr><th scope="row">Kiosk terminal</th><td>Touchscreen monitor able to run a security-locked interface</td></tr>
+              <tr><th scope="row">Network</th><td>Active internet connection for real-time sync</td></tr>
+              <tr><th scope="row">Operating system</th><td>Windows 10 or Linux</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================
+     9. RESULTS
+     =================================================================== -->
+<section class="section" id="results" aria-labelledby="results-title">
+  <div class="container">
+    <header class="section-header">
+      <h2 class="section-title" id="results-title">Results</h2>
+    </header>
+
+
+    <!-- 9.1 -->
+    <h3 class="subsection-title">Objective 1: system developed</h3>
+    <p>
+      The completed system brings together real-time editorial management, cloud synchronization, 2.5D
+      geospatial navigation, news archives, a 360° virtual tour and a security-locked kiosk interface in
+      one platform.
+    </p>
+
+    <!-- 9.2 -->
+    <div class="subsection">
+      <h3 class="subsection-title">Objective 2: Black-Box Testing</h3>
+      <p class="lead">
+        <strong>98.21% overall passing rate</strong>, with 275 of 280 test instances passing, run by 10 IT experts.
+      </p>
+      <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="blackbox-caption">
+        <table class="data-table">
+          <caption id="blackbox-caption">Black-Box Testing results by module</caption>
+          <thead>
+            <tr>
+              <th scope="col">Module</th>
+              <th scope="col" class="number">Functions tested</th>
+              <th scope="col" class="number">Passing rate</th>
+              <th scope="col">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Kiosk User Page</th><td class="number">6</td><td class="number">✔ 100%</td>
+              <td>Latest News, Campus Map, Gears Archives, Virtual Tour, About LSPU, LSPU Org Chart</td></tr>
+            <tr><th scope="row">Editor’s Dashboard</th><td class="number">12</td><td class="number">✔ 99.17%</td>
+              <td>✖ 1 failure in Screen Control (90%)</td></tr>
+            <tr><th scope="row">Admin Dashboard</th><td class="number">4</td><td class="number">✔ 100%</td>
+              <td>Review newsletters, manage editors, generate passwords, update profile</td></tr>
+            <tr><th scope="row">Super Admin Account</th><td class="number">6</td><td class="number">✔ 93.33%</td>
+              <td>✖ Edit Admin Account 70% (3 failures); ✖ Remove Editor Account 90% (1 failure)</td></tr>
+            <tr class="table-total"><th scope="row">Overall</th><td class="number">28</td><td class="number">98.21%</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <aside class="callout space-above">
+        <span class="callout-label">Note</span>
+        <p>The results apply to the prepared test cases and testing conditions; they don’t prove errors can never happen under other conditions.</p>
+      </aside>
+    </div>
+
+    <!-- 9.3 -->
+    <div class="subsection">
+      <h3 class="subsection-title">Objective 3: User acceptance</h3>
+      <p class="lead">
+        Overall means of <strong>4.83 to 5.00</strong> across all six criteria (SD 0.00–0.47), interpreted as
+        <strong>Highly Acceptable / Strongly Agree</strong> by 290 respondents.
+      </p>
+
+      <div class="layout-split">
+        <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="groups-caption">
+          <table class="data-table">
+            <caption id="groups-caption">Results by respondent group</caption>
+            <thead>
+              <tr><th scope="col">Group</th><th scope="col" class="number">n</th><th scope="col">Result</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Administrator</th><td class="number">1</td><td><strong>5.00</strong> on every criterion</td></tr>
+              <tr><th scope="row">Editorial Board</th><td class="number">10</td><td><strong>5.00</strong> on every criterion</td></tr>
+              <tr><th scope="row">Students</th><td class="number">279</td><td><strong>4.94–4.98</strong> across the six criteria</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="rated5-caption">
+          <table class="data-table">
+            <caption id="rated5-caption">Share of all 290 respondents who rated each criterion 5 – Highly Acceptable</caption>
+            <thead>
+              <tr><th scope="col">Criterion</th><th scope="col" class="number">Rated 5</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Quality Factors</th><td class="number">96.6%</td></tr>
+              <tr><th scope="row">Perceived Ease of Use</th><td class="number">96.5%</td></tr>
+              <!-- EDIT: Perceived Usefulness percentage (missing from README §9.3) -->
+              <tr><th scope="row">Perceived Usefulness</th><td class="number"><span class="pending">To add</span></td></tr>
+              <tr><th scope="row">Attitude Toward Using</th><td class="number">97.6%</td></tr>
+              <tr><th scope="row">Behavioral Intention to Use</th><td class="number">97.6%</td></tr>
+              <tr><th scope="row">User Experience</th><td class="number">95.3% (1.3% Undecided)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <p class="space-above">
+        <strong>Respondent profile:</strong> 93.1% aged 18–21; 55% female, 45% male.
+      </p>
+
+      <figure class="figure space-above-large">
+        <!-- EDIT: image → images/evaluation-photo.jpg
+             alt: describe who is shown and what they're doing, e.g.
+             "Students answering the survey beside the PressPoint kiosk" -->
+        <div class="figure-placeholder">
+          <span class="figure-placeholder-title">Image to add</span>
+          <span class="figure-placeholder-path">images/evaluation-photo.jpg</span>
+        </div>
+        <figcaption class="figure-caption">Face-to-face evaluation</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================
+     10. CONCLUSION AND RECOMMENDATIONS
+     =================================================================== -->
+<section class="section" id="conclusion" aria-labelledby="conclusion-title">
+  <div class="container">
+    <header class="section-header">
+      <h2 class="section-title" id="conclusion-title">Conclusion and recommendations</h2>
+    </header>
+
+    <p class="lead">
+      All three research objectives were achieved. PressPoint gives <em>The Gears</em> Publication and the
+      LSPU – Sta. Cruz community one platform for real-time news, digital archiving and campus navigation.
+      It replaces manual flash-drive updates and closes the integration, technology and evaluation gaps
+      identified in the literature.
+    </p>
+
+    <div class="subsection">
+      <h3 class="subsection-title">Recommendations</h3>
+      <ol class="step-list">
+        <li>Keep the 3D-modeled <strong>Citizen’s Charter</strong> in the virtual tour in sync with the official PDF, so visitors always see current procedures.</li>
+        <li>Turn the newsletter composer into a <strong>free-form canvas</strong> with drag-and-drop elements, for more flexible layouts.</li>
+        <li>Add an <strong>automated image-processing tool</strong> to the dashboard, so staff can upload equirectangular photos that become tour frames without touching backend code.</li>
+        <li><strong>Update the 2.5D map and navigation data regularly</strong> to match campus development, recalibrating with real coordinates for new or moved facilities.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================
+     11. LINKS
+     To fill a pending link: replace the <span class="pending"> with
+     <a class="button button-secondary" href="LINK">Open</a>
+     =================================================================== -->
+<section class="section" id="links" aria-labelledby="links-title">
+  <div class="container">
+    <header class="section-header">
+      <h2 class="section-title" id="links-title">Links</h2>
+    </header>
+
+    <ul class="link-list">
+      <li>
+        <span class="link-list-name">Live system</span>
+        <a class="button button-primary" href="https://presspoint-gears.me">Open presspoint-gears.me</a>
+      </li>
+      <li>
+        <span class="link-list-name">Demo video</span>
+        <!-- EDIT: demo video link -->
+        <span class="pending">Link to add</span>
+      </li>
+      <li>
+        <span class="link-list-name">Capstone manuscript (PDF)</span>
+        <!-- EDIT: manuscript link, e.g. files/presspoint-manuscript.pdf -->
+        <span class="pending">Link to add</span>
+      </li>
+      <li>
+        <span class="link-list-name">Poster / presentation deck</span>
+        <!-- EDIT (optional): poster or deck link. Delete this <li> if not used. -->
+        <span class="pending">Optional</span>
+      </li>
+      <li>
+        <span class="link-list-name">Source repository</span>
+        <!-- EDIT (optional): only if the repo is public. Delete this <li> otherwise. -->
+        <span class="pending">Only if public</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================================================================
+     12. FOOTER  (same markup as styles/footer/footer.html)
+     =================================================================== -->
+<footer class="site-footer surface-brand">
+  <div class="footer-inner container">
+    <p class="footer-brand">PressPoint</p>
+    <p class="footer-text">
+      College of Computer Studies, Laguna State Polytechnic University – Sta. Cruz Campus,
+      Santa Cruz, Laguna, Philippines
+    </p>
+    <p class="footer-text">
+      Built for <em>The Gears</em>, the official student publication of LSPU – Sta. Cruz Campus.
+    </p>
+    <p class="footer-credit">© 2026 Bajao, Rebong, Sisante</p>
+    <p class="footer-credit footer-credit-fonts">
+      Fonts: Archivo Black, Space Grotesk and JetBrains Mono, under the SIL Open Font License
+      (<a href="assets/fonts/LICENSES/ArchivoBlack-OFL.txt">Archivo Black</a>,
+      <a href="assets/fonts/LICENSES/SpaceGrotesk-OFL.txt">Space Grotesk</a>,
+      <a href="assets/fonts/LICENSES/JetBrainsMono-OFL.txt">JetBrains Mono</a>).
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

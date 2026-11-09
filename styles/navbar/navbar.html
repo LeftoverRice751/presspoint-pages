@@ -1,0 +1,33 @@
+<!--
+  NAVBAR — reference markup. Paste right after <body>, before <main>.
+  Needs: styles/tokens.css, styles/base.css, styles/navbar/navbar.css
+         and <script src="styles/navbar/navbar.js" defer></script> in <head>.
+
+  To add a nav item: copy one <li> and point href at a section id.
+  To remove one: delete its <li>. navbar.js picks up the changes on its own.
+  The data-navbar* attributes are what navbar.js looks for. Keep them.
+-->
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header class="navbar" data-navbar>
+  <nav class="navbar-inner container" aria-label="Main">
+    <a class="navbar-brand" href="#top">PressPoint</a>
+
+    <button class="navbar-toggle" type="button"
+            aria-expanded="false" aria-controls="navbar-menu" data-navbar-toggle>
+      <span class="navbar-toggle-icon" aria-hidden="true"></span>
+      Menu
+    </button>
+
+    <ul class="navbar-menu" id="navbar-menu" data-navbar-menu>
+      <li><a class="navbar-link" href="#about">About</a></li>
+      <li><a class="navbar-link" href="#team">Team</a></li>
+      <li><a class="navbar-link" href="#problem">Problem</a></li>
+      <li><a class="navbar-link" href="#objectives">Objectives</a></li>
+      <li><a class="navbar-link" href="#methodology">Methodology</a></li>
+      <li><a class="navbar-link" href="#system">System</a></li>
+      <li><a class="navbar-link" href="#results">Results</a></li>
+      <li><a class="navbar-link" href="#links">Links</a></li>
+    </ul>
+  </nav>
+</header>

@@ -1,0 +1,178 @@
+/* ==========================================================================
+   base.css — reset, typography, page layout and small helpers.
+   Loads after tokens.css. No component styles here.
+   ========================================================================== */
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  overflow-x: clip;                 /* never hidden, never 100vw (Hallmark 34) */
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  /* Keep anchored/focused elements clear of the sticky navbar (WCAG 2.4.11). */
+  scroll-padding-top: calc(var(--navbar-height) + var(--s-3));
+}
+
+body {
+  overflow-x: clip;
+  margin: 0;
+  background: var(--surface);
+  color: var(--text-color);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+}
+
+img, svg { display: block; max-width: 100%; height: auto; }
+
+/* ---------- Text ---------- */
+h1, h2, h3, h4 {
+  min-width: 0;
+  margin: 0;
+  color: var(--heading-color);
+  line-height: 1.1;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+h3 { font-size: var(--text-xl); font-weight: 700; }
+h4 { font-size: var(--text-lg); font-weight: 700; }
+
+p { margin: 0 0 var(--s-3); max-width: 68ch; text-wrap: pretty; }
+p:last-child { margin-bottom: 0; }
+
+ul, ol { margin: 0 0 var(--s-3); padding-left: 1.25em; }
+li + li { margin-top: var(--s-1); }
+
+em { font-style: italic; }
+strong { font-weight: 700; }
+
+a {
+  color: var(--link-color);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+a:hover { text-decoration-thickness: 3px; }
+
+::selection { background: var(--accent); color: var(--accent-ink); }
+
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+blockquote { margin: 0; }
+
+/* ---------- Maroon bands (masthead, footer) ----------
+   Swaps the context tokens so everything inside stays in an approved pairing. */
+.surface-brand {
+  background: var(--surface-brand);
+  --text-color:    var(--ink-invert);                    /* 8.04 */
+  --heading-color: var(--ink-invert);
+  --muted-color:   rgb(var(--brand-cream-rgb) / 0.80);   /* 5.73 */
+  --link-color:    var(--brand-gold);                    /* 6.44 */
+  --line-color:    var(--ink-invert);
+  --focus-ring:    var(--focus-ring-on-brand);
+  color: var(--text-color);
+}
+
+/* ---------- Layout ---------- */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--s-3);
+}
+
+.section { padding-block: var(--s-7); }
+.section + .section { border-top: var(--border-rule); }
+
+.section-header { margin-bottom: var(--s-5); }
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+}
+
+.subsection { margin-top: var(--s-6); }
+.subsection-title { margin-bottom: var(--s-3); }
+
+.lead {
+  color: var(--heading-color);
+  font-size: var(--text-lg);
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.text-muted { color: var(--muted-color); }
+
+/* Two columns from 1024px up, stacked below. */
+.layout-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);   /* lets wide tables scroll inside, not the page */
+  align-items: start;                       /* columns keep their own height */
+  gap: var(--s-5);
+}
+
+/* Cards/tiles that wrap on their own, no media queries needed. */
+.layout-grid {
+  display: grid;
+  gap: var(--s-4);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.layout-grid > li { margin: 0; }
+
+.stack > * + * { margin-top: var(--s-4); }
+
+/* Small heading below a subsection title (h4). */
+.minor-title {
+  margin: var(--s-5) 0 var(--s-3);
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+/* ---------- Spacing helpers (use instead of style="margin-top: …") ---------- */
+.space-above-small { margin-top: var(--s-3); }
+.space-above       { margin-top: var(--s-4); }
+.space-above-large { margin-top: var(--s-5); }
+
+/* ---------- Accessibility helpers ---------- */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: var(--s-2);
+  left: var(--s-3);
+  z-index: 1000;
+  padding: var(--s-2) var(--s-3);
+  border: var(--border-rule);
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: none; }
+
+/* ---------- Breakpoints ---------- */
+@media (min-width: 768px) {
+  .container { padding-inline: var(--s-5); }
+  .section { padding-block: var(--s-8); }
+}
+
+@media (min-width: 1024px) {
+  .layout-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-6); }
+}

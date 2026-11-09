@@ -1,0 +1,131 @@
+/* ==========================================================================
+   navbar.css — sticky top navigation (DESIGN.md §5.1)
+   Markup reference: navbar.html · Behaviour: navbar.js (same folder)
+
+   .navbar              the sticky bar (<header>)
+   .navbar-inner        the centred row inside it
+   .navbar-brand        "PressPoint" wordmark, links to #top
+   .navbar-toggle       "Menu" button, phones only, only when JS runs
+   .navbar-menu         the list of links
+   .navbar-link         one link; aria-current="true" marks the active one
+
+   States set by navbar.js:
+   .is-enhanced         JS is running, so the menu may collapse on phones
+   .is-open             phone menu is open
+   Without JS the links simply stay visible and wrap. Nothing breaks.
+   ========================================================================== */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--surface);
+  border-bottom: var(--border-rule);
+}
+
+.navbar-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2) var(--s-4);
+  min-height: var(--navbar-height);
+  padding-block: var(--s-2);
+}
+
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target-size);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.5rem;              /* 24px: the display face's minimum size */
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.navbar-toggle {
+  display: none;                  /* shown on phones once JS runs */
+  align-items: center;
+  gap: var(--s-2);
+  min-height: var(--target-size);
+  min-width: var(--target-size);
+  padding: var(--s-2) var(--s-3);
+  border: 2px solid var(--border-ui);
+  border-radius: var(--radius-md);
+  background: var(--surface-raised);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.navbar-toggle-icon,
+.navbar-toggle-icon::before,
+.navbar-toggle-icon::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+}
+.navbar-toggle-icon { position: relative; }
+.navbar-toggle-icon::before,
+.navbar-toggle-icon::after { content: ""; position: absolute; left: 0; }
+.navbar-toggle-icon::before { top: -6px; }
+.navbar-toggle-icon::after  { top: 6px; }
+
+.navbar-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--s-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.navbar-menu > li { margin: 0; }
+
+.navbar-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target-size);
+  padding-inline: var(--s-2);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;            /* a step under body, sentence case, untracked */
+  font-weight: 400;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.navbar-link:hover { text-decoration: underline; text-decoration-thickness: 2px; }
+
+/* Active section: gold bar. aria-current carries it for screen readers.
+   Weight stays the same so the row never shifts. */
+.navbar-link[aria-current="true"] {
+  box-shadow: inset 0 -4px 0 0 var(--accent);
+}
+
+/* ---------- Phones (JS running) ---------- */
+@media (max-width: 767.98px) {
+  .navbar.is-enhanced .navbar-toggle { display: inline-flex; }
+
+  .navbar.is-enhanced .navbar-menu {
+    display: none;
+    flex-basis: 100%;
+    flex-direction: column;
+    padding-bottom: var(--s-2);
+    border-top: 1px solid var(--rule);
+  }
+  .navbar.is-enhanced.is-open .navbar-menu { display: flex; }
+
+  .navbar.is-enhanced .navbar-link {
+    width: 100%;
+    padding-inline: var(--s-1);
+    border-bottom: 1px solid var(--rule);
+  }
+  .navbar.is-enhanced .navbar-link[aria-current="true"] {
+    box-shadow: inset 4px 0 0 0 var(--accent);
+    padding-left: var(--s-3);
+  }
+}

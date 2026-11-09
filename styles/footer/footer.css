@@ -1,0 +1,38 @@
+/* ==========================================================================
+   footer.css — site footer (DESIGN.md §5.9)
+   Markup reference: footer.html in this folder.
+
+   .site-footer         maroon band (use together with .surface-brand)
+   .footer-inner        the centred content
+   .footer-brand        "PressPoint" wordmark
+   .footer-text         one line/paragraph of footer copy
+   .footer-credit       small print (copyright, font licences)
+   Links inside are gold and underlined automatically (.surface-brand).
+   ========================================================================== */
+
+.site-footer {
+  padding-block: var(--s-6);
+  border-top: var(--border-rule);
+}
+
+.footer-inner {
+  display: grid;
+  gap: var(--s-3);
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.footer-text { margin: 0; }
+
+.footer-credit {
+  margin: 0;
+  padding-top: var(--s-3);
+  border-top: 1px solid rgb(var(--brand-cream-rgb) / 0.45);
+  color: var(--muted-color);
+  font-size: var(--text-sm);
+}

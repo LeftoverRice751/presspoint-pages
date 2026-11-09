@@ -1,0 +1,30 @@
+<!--
+  BUTTONS — reference markup. Copy what you need into any page.
+  Needs: styles/tokens.css, styles/base.css, styles/buttons/buttons.css
+
+  Rules (DESIGN.md §5.3):
+  - Labels are verbs: "Open the live system", never "Click here".
+  - A button that goes somewhere is an <a>. A button that does something is a <button>.
+  - Inside a maroon band (.surface-brand) the same classes recolour themselves.
+-->
+
+<!-- Primary: the one main action in a section -->
+<a class="button button-primary" href="https://presspoint-gears.me">Open the live system</a>
+
+<!-- Secondary: other actions -->
+<a class="button button-secondary" href="#links">See all links</a>
+
+<!-- Pending: the link isn't ready yet. A <span> so it isn't clickable.
+     When the link exists, replace the whole line with a normal <a class="button button-secondary" href="...">. -->
+<span class="button button-secondary is-pending">
+  Watch the demo <span class="button-note">· coming soon</span>
+</span>
+
+<!-- A row of buttons -->
+<div class="button-group">
+  <a class="button button-primary" href="https://presspoint-gears.me">Open the live system</a>
+  <a class="button button-secondary" href="#links">See all links</a>
+</div>
+
+<!-- A real <button> (for actions, not links) -->
+<button class="button button-secondary" type="button">Show more</button>

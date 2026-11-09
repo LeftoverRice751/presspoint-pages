@@ -1,0 +1,144 @@
+/* Hallmark · checked: 2026-11-09 · genre: editorial (inferred)
+ * floor: 0 FAIL · fixed: 12 (19, 30a, 34, 49, 50, 54, 55b, 63, 64, 67, 69, 71) · structural: printed (8, 44c, 58, 59)
+ * copy: verbatim · the copy is the EW03 capstone manuscript, which README.md says is the source of truth
+ * built: the project · redesign: polish · v2.0.0 */
+/* Hallmark · waive 26b · no form controls and no aria-disabled anywhere · every PressPoint button is a link or the menu toggle */
+/* Hallmark · answered F20 · the third hero button sits alone until the demo and manuscript links exist and the pending notes go */
+/* Hallmark · reworded "Editor's Dashboard" to "Editor’s Dashboard" · F1 asks for typographic apostrophes */
+
+/* ==========================================================================
+   tokens.css — design tokens for the PressPoint GitHub page
+   Loads FIRST. Values come from DESIGN.md §2–§6 (copied from the system).
+   Raw brand hex values appear ONLY in this file. Everything else uses the
+   semantic roles in "Layer 4" and the "Context" tokens below it.
+   ========================================================================== */
+
+/* ---------- Fonts (DESIGN.md §3.1) ----------
+   Paths are relative to THIS file (styles/), hence the "../". */
+@font-face {
+  font-family: "Archivo Black";
+  src: url("../assets/fonts/archivo-black-regular.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("../assets/fonts/space-grotesk-variable.woff2") format("woff2");
+  font-weight: 300 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../assets/fonts/jetbrains-mono-variable.woff2") format("woff2");
+  font-weight: 400 800; font-style: normal; font-display: swap;
+}
+
+:root {
+  /* Layer 1 — brand constants (The Gears '26–'27). Only place these hexes appear. */
+  --brand-maroon: #6b2516;
+  --brand-gold:   #f4be27;
+  --brand-cream:  #e9dac4;
+  --brand-maroon-rgb: 107 37 22;
+  --brand-gold-rgb:   244 190 39;
+  --brand-cream-rgb:  233 218 196;
+
+  /* Layer 2 — derived shades */
+  --brand-maroon-lift: #82301d;
+  --brand-maroon-dark: #4e1b10;
+  --brand-maroon-deep: #2f0f08;
+  --brand-gold-lift:   #f7cf5c;
+  --brand-gold-dark:   #d9a412;
+  --brand-cream-light: #f4ece0;
+  --brand-cream-dark:  #d5c2a5;
+
+  /* Layer 3 — neutrals + semantics */
+  --n-white: #ffffff;
+  --n-500:   #6b5e50;
+  --n-900:   #241009;
+  --ok:      #1f6a24;
+  --warn:    #8a5200;
+  --danger:  #b3261e;
+
+  /* Kiosk accent palette — DECORATIVE FILLS ONLY (DESIGN.md §2.4) */
+  --kiosk-amber:      #E89A1C;
+  --kiosk-terracotta: #CC5A1F;
+  --kiosk-crimson:    #B11E2A;
+  --kiosk-maroon:     #4A1A12;
+  --kiosk-espresso:   #1F0F0C;
+  --kiosk-paper:      #F4EFE6;
+  --kiosk-cream:      #EAE3D9;
+
+  /* Layer 4 — semantic roles (the ONLY colour tokens components use) */
+  --surface:             var(--brand-cream);
+  --surface-raised:      var(--brand-cream-light);
+  --surface-sunken:      var(--brand-cream-dark);
+  --surface-brand:       var(--brand-maroon);
+  --surface-brand-hover: var(--brand-maroon-lift);
+
+  --ink:        var(--brand-maroon);
+  --ink-strong: var(--n-900);
+  --ink-muted:  rgb(var(--brand-maroon-rgb) / 0.80);
+  --ink-invert: var(--brand-cream);
+
+  --rule:         rgb(var(--brand-maroon-rgb) / 0.20);
+  --rule-strong:  rgb(var(--brand-maroon-rgb) / 0.45);
+  --border-ui:    var(--brand-maroon);
+
+  --accent:       var(--brand-gold);
+  --accent-hover: var(--brand-gold-dark);
+  --accent-ink:   var(--brand-maroon);
+  --accent-text:  var(--brand-maroon);
+
+  --focus-ring:          var(--brand-maroon);
+  --focus-ring-on-brand: var(--brand-gold);
+
+  --border-rule:  2px solid var(--ink);
+  --shadow-press: 0 6px 0 0 var(--ink);
+  --shadow-lift:  0 12px 28px rgb(var(--brand-maroon-rgb) / 0.18);
+
+  /* Context tokens — what text/links/headings use RIGHT HERE.
+     .surface-brand (base.css) swaps these for the maroon bands. */
+  --text-color:    var(--ink-strong);
+  --heading-color: var(--ink);
+  --muted-color:   var(--ink-muted);
+  --link-color:    var(--ink);
+  --line-color:    var(--ink);
+
+  /* ---------- Typography (DESIGN.md §3) ---------- */
+  --font-display: "Archivo Black", "Arial Black", "Helvetica Neue", sans-serif;
+  --font-body:    "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --text-display:  clamp(3.0rem, 1.9rem + 5.4vw, 7.0rem);
+  --text-3xl:   clamp(2.5rem, 1.8rem + 3.2vw, 4.5rem);
+  --text-2xl:   clamp(2.0rem, 1.5rem + 2.2vw, 3.25rem);
+  --text-xl:    clamp(1.5rem, 1.25rem + 1.2vw, 2.25rem);
+  --text-lg:    clamp(1.2rem, 1.05rem + 0.7vw, 1.5rem);
+  --text-base:  clamp(1.0rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-sm:    0.875rem;
+  --text-label: 0.8125rem;
+
+  /* ---------- Spacing (DESIGN.md §4.1) ---------- */
+  --s-1: 4px;   --s-2: 8px;   --s-3: 16px;  --s-4: 24px;
+  --s-5: 32px;  --s-6: 48px;  --s-7: 72px;  --s-8: 96px;
+
+  /* ---------- Shape (DESIGN.md §4.3) ---------- */
+  --radius-sm: 4px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* ---------- Layout ---------- */
+  --container-width: 1200px;
+  --navbar-height:   64px;
+  --target-size:     44px;
+
+  /* ---------- Motion (DESIGN.md §6) ---------- */
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  --dur-fast: 160ms;  --dur-med: 280ms;  --dur-slow: 480ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

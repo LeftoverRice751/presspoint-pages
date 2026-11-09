@@ -1,0 +1,85 @@
+/* ==========================================================================
+   buttons.css — reusable buttons (DESIGN.md §5.3)
+   Markup reference: buttons.html in this folder.
+
+   .button              base shape: 44px min, press shadow
+   .button-primary      gold fill, maroon text (6.44)
+   .button-secondary    outline in the current ink colour
+                        (maroon on cream, cream on maroon bands)
+   .button-group        lays several buttons out in a wrapping row
+   .is-pending          a button whose link isn't ready yet (not clickable)
+   ========================================================================== */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  min-height: var(--target-size);
+  min-width: var(--target-size);
+  padding: var(--s-2) var(--s-4);
+  border: 2px solid var(--line-color);
+  border-radius: var(--radius-md);
+  box-shadow: 0 6px 0 0 var(--line-color);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;              /* a button label never wraps (Hallmark 49a) */
+  cursor: pointer;
+  transition:
+    background-color var(--dur-fast) var(--ease),
+    transform var(--dur-fast) var(--ease),
+    box-shadow var(--dur-fast) var(--ease);
+}
+
+.button:hover { text-decoration: none; }
+
+.button:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 0 var(--line-color);
+}
+
+/* Primary — gold fill. Always maroon text, on cream or maroon. */
+.button-primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.button-primary:hover { background: var(--accent-hover); }   /* 4.88 */
+
+/* Secondary — outline that follows the surrounding context colour. */
+.button-secondary {
+  background: transparent;
+  color: var(--heading-color);
+}
+.button-secondary:hover { background: var(--surface-raised); color: var(--ink); }
+.surface-brand .button-secondary:hover {
+  background: var(--surface-brand-hover);                    /* 6.40 */
+  color: var(--ink-invert);
+}
+
+/* Pending — the destination doesn't exist yet. Use on a <span>, not an <a>,
+   so it can't be clicked or tabbed to. Swap for a real <a> when ready. */
+.button.is-pending {
+  border-style: dashed;
+  box-shadow: none;
+  background: transparent;
+  color: var(--muted-color);
+  cursor: default;
+}
+.button.is-pending:active { transform: none; }
+
+.button-note {
+  font-size: var(--text-sm);
+  font-weight: 400;
+}
+
+/* A wrapping row of buttons. Extra bottom padding keeps press shadows visible. */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  padding-bottom: var(--s-2);
+}

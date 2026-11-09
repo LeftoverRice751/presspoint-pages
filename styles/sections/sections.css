@@ -1,0 +1,134 @@
+/* ==========================================================================
+   sections.css — layout that belongs to ONE section of index.html.
+   Anything reused in more than one section goes in content/content.css instead.
+   Sections are listed in page order.
+   ========================================================================== */
+
+/* ---------- 1 · Masthead hero (#top) — DESIGN.md §5.2 ---------- */
+.masthead { padding-block: var(--s-6) var(--s-7); }
+
+.masthead-layout {
+  display: grid;
+  gap: var(--s-6);
+  align-items: start;
+}
+
+/* Nameplate: title between two cream rules, like a newspaper front page. */
+.masthead-nameplate {
+  container-type: inline-size;     /* lets the title size itself to this box */
+  padding-block: var(--s-3);
+  border-block: 2px solid var(--line-color);
+}
+.masthead-title {
+  font-family: var(--font-display);
+  /* Never wider than its box: one word, one line, at any screen size.
+     The first line is the fallback for browsers without container units. */
+  font-size: var(--text-display);
+  font-size: min(var(--text-display), 13cqi);
+  font-weight: 400;
+  line-height: 1.02;               /* caps on one line hold 1.02 (Hallmark 55b) */
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.masthead-subtitle {
+  margin: var(--s-4) 0 var(--s-3);
+  color: var(--heading-color);
+  font-size: var(--text-lg);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.masthead-summary { margin-bottom: var(--s-5); }
+
+.masthead-figure { justify-self: center; width: 100%; }
+
+/* Program and college, under the actions: a fact, not an eyebrow. */
+.masthead-byline {
+  margin: var(--s-4) 0 0;
+  color: var(--muted-color);                       /* 5.73 on maroon */
+  font-size: var(--text-sm);
+}
+
+/* Headline figures strip */
+.stats-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-4) 0;
+  margin: var(--s-6) 0 0;
+  padding: var(--s-4) 0 0;
+  border-top: 2px solid var(--line-color);
+  list-style: none;
+}
+.stats-strip-item {
+  flex: 1 1 12rem;
+  margin: 0;
+  padding: 0 var(--s-4) 0 var(--s-3);
+  border-left: 2px solid var(--accent);            /* decorative marker */
+}
+.stats-strip-number {
+  display: block;
+  color: var(--brand-gold);                        /* 6.44 on maroon */
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1.4rem + 2vw, 3rem);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.stats-strip-label {
+  display: block;
+  margin-top: var(--s-2);
+  font-size: var(--text-sm);
+}
+
+/* ---------- 3 · Team ---------- */
+.team-card {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+.avatar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--surface-brand);
+  color: var(--ink-invert);                        /* 8.04 */
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+.team-name { margin: 0; font-size: var(--text-lg); font-weight: 700; color: var(--ink); }
+
+.people-list { padding: 0; list-style: none; }
+.people-list li {
+  padding-block: var(--s-2);
+  border-bottom: 1px solid var(--rule);
+}
+
+/* ---------- 11 · Links ---------- */
+.link-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: var(--border-rule);
+}
+.link-list > li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2) var(--s-4);
+  margin: 0;
+  padding-block: var(--s-3);
+  border-bottom: var(--border-rule);
+}
+.link-list-name { font-weight: 700; color: var(--ink); }
+
+/* ---------- Breakpoints ---------- */
+@media (min-width: 1024px) {
+  .masthead-layout { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
+}

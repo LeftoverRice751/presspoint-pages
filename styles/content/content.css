@@ -1,0 +1,290 @@
+/* ==========================================================================
+   content.css — reusable content blocks used inside any section.
+   Markup reference: content.html in this folder.
+
+   .card / .card-title / .card-text / .card-meta / .card-number   (§5.4)
+   .tag-list / .tag                                               keywords
+   .callout / .callout-label                                      (§5.8)
+   .table-wrapper / .data-table / .table-total                    (§5.6)
+   .figure / .figure-frame / .figure-caption / .figure-placeholder (§5.7)
+   .stat / .stat-number / .stat-label / .stat-source              (§5.5)
+     colour fills: .stat-crimson · .stat-amber · .stat-espresso
+   .step-list                                                     numbered cycle
+   .flow / .flow-step / .flow-arrow                               a → b ⇄ c line
+   .pending                                                       content to add later
+   ========================================================================== */
+
+/* ---------- Card ---------- */
+.card {
+  height: 100%;
+  padding: var(--s-4);
+  border: var(--border-rule);
+  border-radius: var(--radius-md);
+  background: var(--surface-raised);
+}
+.card-title {
+  margin-bottom: var(--s-2);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  line-height: 1.2;
+}
+.card-text { margin: 0; }
+.card-meta {
+  display: block;
+  margin-top: var(--s-1);
+  color: var(--ink-muted);                      /* 5.70 on raised */
+  font-size: var(--text-sm);
+}
+.card-number {
+  display: inline-block;
+  margin-bottom: var(--s-2);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Tags ---------- */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.tag-list > li { margin: 0; }
+.tag {
+  display: inline-block;
+  padding: var(--s-1) var(--s-3);
+  border: 2px solid var(--border-ui);
+  border-radius: var(--radius-sm);
+  background: var(--surface-raised);
+  color: var(--ink);                            /* 9.43 */
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+/* ---------- Callout ---------- */
+.callout {
+  max-width: 72ch;
+  padding: var(--s-4);
+  border: var(--border-rule);
+  border-radius: var(--radius-md);
+  background: var(--surface-sunken);
+  color: var(--ink);                            /* 6.36 */
+}
+.callout-label {
+  display: block;
+  margin-bottom: var(--s-2);
+  font-weight: 700;
+}
+
+/* ---------- Quote (manuscript passages) ---------- */
+.quote {
+  max-width: 72ch;
+  padding-left: var(--s-4);
+  border-left: 2px solid var(--ink);
+}
+
+/* ---------- Tables ---------- */
+.table-wrapper {
+  max-width: 100%;
+  overflow-x: auto;                             /* wide tables scroll alone (1.4.10) */
+  border: var(--border-rule);
+  border-radius: var(--radius-md);
+}
+.table-wrapper:focus-visible { outline-offset: 2px; }
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+}
+.data-table caption {
+  padding: var(--s-3);
+  background: var(--surface-raised);
+  color: var(--ink);
+  font-size: var(--text-base);
+  font-weight: 700;
+  text-align: left;
+}
+.data-table th,
+.data-table td {
+  padding: var(--s-2) var(--s-3);
+  text-align: left;
+  vertical-align: top;
+}
+.data-table thead th {
+  background: var(--surface-brand);
+  color: var(--ink-invert);                     /* 8.04 */
+  font-weight: 700;
+  white-space: nowrap;
+}
+.data-table tbody th,
+.data-table tbody td { color: var(--ink-strong); }
+.data-table tbody th { font-weight: 700; }
+.data-table tbody tr:nth-child(odd)  { background: var(--surface-raised); }
+.data-table tbody tr:nth-child(even) { background: var(--surface); }
+.data-table .table-total th,
+.data-table .table-total td {
+  border-top: var(--border-rule);
+  font-weight: 700;
+}
+.data-table .number { text-align: right; white-space: nowrap; }
+
+/* ---------- Figures ---------- */
+.figure { margin: 0; }
+.figure-frame {
+  overflow: hidden;
+  border: var(--border-rule);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lift);
+  background: var(--surface-raised);
+}
+.figure-frame img { width: 100%; }
+.figure-portrait { max-width: 420px; }          /* kiosk screens are 768×1024 */
+.figure-centered { justify-self: center; width: 100%; margin-inline: auto; }
+.figure-caption {
+  margin-top: var(--s-3);
+  color: var(--muted-color);
+  font-size: var(--text-sm);
+}
+
+/* Stand-in until the real image exists. Replace the whole .figure-placeholder
+   with an <img> (see content.html). */
+.figure-placeholder {
+  display: grid;
+  place-content: center;
+  gap: var(--s-1);
+  aspect-ratio: 16 / 10;
+  padding: var(--s-4);
+  border: 2px dashed var(--border-ui);
+  border-radius: var(--radius-md);
+  background: var(--surface-sunken);
+  color: var(--ink);                            /* 6.36 */
+  text-align: center;
+}
+.figure-portrait .figure-placeholder { aspect-ratio: 3 / 4; }
+.figure-placeholder-title {
+  font-weight: 700;
+}
+.figure-placeholder-path {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  overflow-wrap: anywhere;
+}
+.surface-brand .figure-placeholder {
+  border-color: var(--ink-invert);
+  background: var(--surface-brand-hover);
+  color: var(--ink-invert);                     /* 6.40 */
+}
+
+/* ---------- Stat blocks ---------- */
+.stat {
+  container-type: inline-size;      /* lets the number size itself to the card */
+  height: 100%;
+  padding: var(--s-4);
+  border: var(--border-rule);
+  border-radius: var(--radius-md);
+  background: var(--surface-raised);
+  color: var(--ink);
+}
+.stat-number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: max(1.5rem, min(var(--text-3xl), 17cqi));   /* fits "4.83–5.00"; never below 24px */
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.stat-label {
+  display: block;
+  margin-top: var(--s-2);
+}
+.stat-source {
+  display: block;
+  margin-top: var(--s-2);
+  font-size: var(--text-sm);
+}
+.stat-crimson  { background: var(--kiosk-crimson);  color: var(--kiosk-paper); }    /* 5.94 */
+.stat-amber    { background: var(--kiosk-amber);    color: var(--kiosk-espresso); } /* 8.01 */
+.stat-espresso { background: var(--kiosk-espresso); color: var(--kiosk-paper); }    /* 16.20 */
+.stat-crimson, .stat-amber, .stat-espresso { border-color: var(--ink); }
+
+/* ---------- Numbered steps (e.g. the Agile cycle) ---------- */
+.step-list {
+  display: grid;
+  gap: var(--s-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+.step-list > li {
+  position: relative;
+  margin: 0;
+  padding: var(--s-3) var(--s-3) var(--s-3) calc(var(--s-3) + 48px + var(--s-3));
+  border: var(--border-rule);
+  border-radius: var(--radius-md);
+  background: var(--surface-raised);
+  counter-increment: step;
+}
+.step-list > li::before {
+  content: counter(step);
+  position: absolute;
+  top: var(--s-3);
+  left: var(--s-3);
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--surface-brand);
+  color: var(--ink-invert);                     /* 8.04 */
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+}
+.step-title { display: block; color: var(--ink); font-weight: 700; }
+
+/* ---------- Flow line (Users → Kiosk ⇄ Database ⇄ Admin) ---------- */
+.flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.flow > li { margin: 0; }
+.flow-step {
+  display: inline-block;
+  padding: var(--s-2) var(--s-3);
+  border: var(--border-rule);
+  border-radius: var(--radius-sm);
+  background: var(--surface-raised);
+  color: var(--ink);
+  font-weight: 700;
+}
+.flow-arrow {
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+/* ---------- Pending content ----------
+   Marks text that will be filled in later. Search index.html for "EDIT:". */
+.pending {
+  display: inline-block;
+  padding: 0 var(--s-2);
+  border: 2px dashed var(--border-ui);
+  border-radius: var(--radius-sm);
+  color: var(--muted-color);
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+.surface-brand .pending { border-color: var(--ink-invert); }

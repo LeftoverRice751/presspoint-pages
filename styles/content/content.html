@@ -1,0 +1,83 @@
+<!--
+  CONTENT BLOCKS — reference markup. Copy into any section.
+  Needs: styles/tokens.css, styles/base.css, styles/content/content.css
+-->
+
+<!-- Card (inside a .layout-grid list so cards wrap on their own) -->
+<ul class="layout-grid">
+  <li class="card">
+    <h4 class="card-title">Card title</h4>
+    <p class="card-text">One or two sentences.</p>
+  </li>
+</ul>
+
+<!-- Tags -->
+<ul class="tag-list">
+  <li class="tag">Interactive Kiosk</li>
+  <li class="tag">Cloud-Based System</li>
+</ul>
+
+<!-- Callout -->
+<aside class="callout">
+  <span class="callout-label">Scope note</span>
+  <p>Text of the note.</p>
+</aside>
+
+<!-- Table: always inside .table-wrapper, always with a <caption>.
+     tabindex="0" + aria-labelledby let keyboard users scroll wide tables. -->
+<div class="table-wrapper" tabindex="0" role="region" aria-labelledby="example-caption">
+  <table class="data-table">
+    <caption id="example-caption">Example table</caption>
+    <thead>
+      <tr><th scope="col">Name</th><th scope="col" class="number">Value</th></tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Row</th><td class="number">10</td></tr>
+      <tr class="table-total"><th scope="row">Total</th><td class="number">10</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Figure WITH an image -->
+<figure class="figure">
+  <div class="figure-frame">
+    <img src="images/architecture.png" alt="Describe what the image SHOWS"
+         width="1600" height="1000" loading="lazy">
+  </div>
+  <figcaption class="figure-caption">System Architecture</figcaption>
+</figure>
+
+<!-- Figure WITHOUT an image yet: replace the .figure-placeholder div
+     with the .figure-frame div above once the file is in images/ -->
+<figure class="figure">
+  <div class="figure-placeholder">
+    <span class="figure-placeholder-title">Image to add</span>
+    <span class="figure-placeholder-path">images/architecture.png</span>
+  </div>
+  <figcaption class="figure-caption">System Architecture</figcaption>
+</figure>
+
+<!-- Portrait (kiosk) figure: add figure-portrait -->
+<figure class="figure figure-portrait">…</figure>
+
+<!-- Stat block. Optional colour: stat-crimson, stat-amber, stat-espresso -->
+<div class="stat stat-crimson">
+  <span class="stat-number">98.21%</span>
+  <span class="stat-label">Black-box test passing rate</span>
+  <span class="stat-source">275 of 280 test instances</span>
+</div>
+
+<!-- Numbered steps -->
+<ol class="step-list">
+  <li><span class="step-title">Step title</span> Description.</li>
+</ol>
+
+<!-- Flow line -->
+<ol class="flow">
+  <li class="flow-step">Users</li>
+  <li class="flow-arrow" aria-hidden="true">→</li>
+  <li class="flow-step">Kiosk Interface</li>
+</ol>
+
+<!-- Pending text (fill in later) -->
+<span class="pending">To add</span>
