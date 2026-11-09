@@ -1,6 +1,6 @@
 # PressPoint GitHub Page · Design Specification
 
-**Status: binding.** Any person or agent building the PressPoint GitHub page must follow this file exactly. Content comes from [`README.md`](README.md); **how it looks comes from here.** If something isn't covered here, choose the option closest to the PressPoint system itself, and add the decision to this file.
+**Status: binding.** Any person or agent building the PressPoint GitHub page must follow this file exactly. Content comes from [`CONTENT.md`](CONTENT.md); **how it looks comes from here.** If something isn't covered here, choose the option closest to the PressPoint system itself, and add the decision to this file.
 
 **Conformance target: WCAG 2.2 Level AA.** Every colour pairing below has a measured contrast ratio. Pairings not listed are **not allowed** until they are measured and added.
 
@@ -330,7 +330,7 @@ Minimum height 44 px and minimum width 44 px (target size; AA requires 24 px, an
 - Pass/fail cells: text **and** a symbol ("✔ 100%", "✖ 70%"). Colour is never the only signal.
 
 ### 5.7 Figures and screenshots
-- `<figure>` with a short `<figcaption>` naming what is shown, e.g. "Kiosk User Page". **No figure numbers** ("Figure 4.3") on the page; manuscript figure numbers belong only in `README.md` and in comments.
+- `<figure>` with a short `<figcaption>` naming what is shown, e.g. "Kiosk User Page". **No figure numbers** ("Figure 4.3") on the page; manuscript figure numbers belong only in `CONTENT.md` and in comments.
 - `--radius-md`, a 2px `--ink` frame, `--shadow-lift`.
 - Kiosk screenshots are portrait (768 × 1024): show them at most 420 px wide, never stretched. Dashboard screenshots are landscape.
 - Every image has meaningful `alt` (see 7). Diagrams that hold data (architecture, Agile cycle) also get a short text description next to them.
@@ -407,7 +407,7 @@ Every item must pass before the page ships.
 3. **No external requests**: no font CDNs, icon CDNs or analytics. Icons are inline SVG with `aria-hidden="true"` when decorative.
 4. **No gradients, no `backdrop-filter` glass, no blurred drop shadows** except `--shadow-lift` on screenshots.
 5. All asset paths relative (`assets/...`, `images/...`), so the page works under a GitHub Pages project path.
-6. Content and wording come from `README.md`. Don't invent facts, numbers or quotes.
+6. Content and wording come from `CONTENT.md`. Don't invent facts, numbers or quotes.
 7. If a needed pairing, size or component isn't in this file, **stop and add it here with its measured ratio** before using it.
 
 ---
@@ -421,10 +421,11 @@ Each reusable component lives in **one folder** that holds everything it needs: 
 ```
 presspoint-gears/
 ├── index.html                 the page (GitHub Pages serves it at the site root)
-├── README.md                  content guide: what the page says
+├── README.md                  what this repository and page are for
+├── CONTENT.md                 content guide: what the page says
 ├── DESIGN.md                  this file: how the page looks
 ├── assets/fonts/              self-hosted OFL fonts + LICENSES/
-├── images/                    screenshots and figures (see README assets checklist)
+├── images/                    screenshots and figures (see the CONTENT.md assets checklist)
 └── styles/
     ├── tokens.css             §2–§6 tokens. Only file with raw hex values. Loads first.
     ├── base.css               reset, text, page layout, helpers (.container, .section, …)
