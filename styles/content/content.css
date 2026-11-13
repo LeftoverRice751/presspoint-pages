@@ -176,6 +176,18 @@
   font-size: var(--text-sm);
   overflow-wrap: anywhere;
 }
+/* Once a real image is inside the placeholder, let it fill the box edge to edge. */
+.figure-placeholder:has(img) {
+  display: block;
+  aspect-ratio: auto;
+  padding: 0;
+  overflow: hidden;
+  border: var(--border-rule);
+  box-shadow: var(--shadow-lift);
+  background: var(--surface-raised);
+}
+.figure-placeholder:has(img) > * { display: block; }
+.figure-placeholder img { width: 100%; height: auto; }
 .surface-brand .figure-placeholder {
   border-color: var(--ink-invert);
   background: var(--surface-brand-hover);

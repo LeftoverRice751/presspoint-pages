@@ -96,7 +96,7 @@ blockquote { margin: 0; }
   font-weight: 400;
 }
 
-.subsection { margin-top: var(--s-6); }
+.subsection { margin-top: var(--s-3); }
 .subsection-title { margin-bottom: var(--s-3); }
 
 .lead {
